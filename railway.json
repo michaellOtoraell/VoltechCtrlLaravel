@@ -1,5 +1,5 @@
 {
-    "buildCommand": "composer install --no-dev",
-    "startCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}",
+    "buildCommand": "composer install --no-dev && php artisan config:clear && php artisan cache:clear && php artisan storage:link && chmod -R 775 storage",
+    "startCommand": "php artisan config:cache && php artisan serve --host=0.0.0.0 --port=${PORT}",
     "healthcheckPath": "/"
 }
